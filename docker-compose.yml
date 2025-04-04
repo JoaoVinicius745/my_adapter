@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8006:8000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices: []  # <--- Força a ignorar qualquer binding de GPU
